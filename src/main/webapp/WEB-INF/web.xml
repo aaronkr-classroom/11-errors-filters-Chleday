@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<filter>
+		<filter-name>Filter01</filter-name>
+		<filter-class>ch12.com.filter.AuthenFilter</filter-class>>
+	</filter>
+	<filter-mapping>
+		<filter-name>Filter01</filter-name>
+		<url-pattern>ch12/filter_process.jsp</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-nmae>Filter02</filter-nmae>
+		<filter-class>ch12.com.filter.InitParamFilter</filter-class>
+		<init-param>
+			<param-name>param1</param-name>
+			<param-value>admin</param-value>
+		</init-param>
+		<init-param>
+			<param-name>param2</param-name>
+			<param-value></param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>Filter02</filter-name>
+		<url-pattern>ch12/filter02_process.jsp</url-pattern>
+	</filter-mapping>	
+	</filter>
+	
+	<filter>
+		<filter-name>Filter02_2</filter-name>
+		<filter-class>ch12.com.filter.LogFileFilter</filter-class>
+		<init-param>
+			<param-name>filename</param-name>
+			<param-value>c:\\logs\monitor.log</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Filter02_2</filter-name>
+		<url-pattern>ch12/filter_process.jsp</url-pattern>
+	</filter-mapping>
+	</filter>
+
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>1103_exception_error.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>500</exception-type>
+		<location>1103_exception_error.jsp</location>
+	</error-page>
+</web-app>
